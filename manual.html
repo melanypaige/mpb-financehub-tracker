@@ -1,0 +1,75 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"><title>FINANCE HUB: User manual</title>
+<style>
+:root{--bg:#f3f8f4;--pn:#ffffff;--p2:#e8f2eb;--ln:#d3e4d9;--tx:#1f2d27;--mu:#5f7468;--ac:#1e8e4e;--wn:#c58b1a;--er:#c4493a;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.6 Inter,system-ui,-apple-system,"Segoe UI",sans-serif}
+.w{max-width:860px;margin:0 auto;padding:24px 18px 80px}h1{margin:0 0 4px;font-size:30px}h2{margin:38px 0 10px;font-size:22px;border-bottom:2px solid var(--ln);padding-bottom:6px}h3{margin:20px 0 6px;font-size:17px}
+.lead{color:var(--mu);margin:0 0 20px}.toc{background:var(--pn);border:1px solid var(--ln);border-radius:12px;padding:14px 20px;columns:2;column-gap:30px}.toc a{display:block;color:var(--ac);text-decoration:none;padding:2px 0}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px;margin:14px 0}.st{background:var(--pn);border:1px solid var(--ln);border-radius:12px;padding:14px}.st b.n{display:inline-flex;width:28px;height:28px;border-radius:50%;background:var(--ac);color:#fff;align-items:center;justify-content:center;margin-bottom:6px}
+.note{background:#fbf0d4;border-left:4px solid var(--wn);padding:10px 14px;border-radius:8px;margin:14px 0}.warn{background:#f7ddd8;border-left-color:var(--er)}
+code,kbd{background:var(--p2);border:1px solid var(--ln);border-radius:6px;padding:1px 6px;font:14px ui-monospace,Menlo,Consolas,monospace}pre{background:var(--p2);border:1px solid var(--ln);border-radius:10px;padding:12px;overflow-x:auto}
+table{width:100%;border-collapse:collapse;background:var(--pn);border:1px solid var(--ln);border-radius:10px;overflow:hidden;display:block;overflow-x:auto}th,td{padding:8px 10px;border-bottom:1px solid var(--ln);text-align:left;vertical-align:top}th{background:var(--p2)}
+.mock{background:var(--pn);border:1px solid var(--ln);border-radius:12px;padding:12px;margin:12px 0;display:flex;gap:8px;flex-wrap:wrap;align-items:center}.mb{background:var(--ac);color:#fff;border-radius:8px;padding:6px 12px;font-size:14px}.mb.g{background:var(--p2);color:var(--tx);border:1px solid var(--ln)}.mp{background:#fbf0d4;border-radius:99px;padding:2px 10px;font-size:13px}
+@media(max-width:600px){.toc{columns:1}}@media print{.toc{display:none}}
+</style></head><body><div class="w">
+<h1>FINANCE HUB: User manual</h1><p class="lead">How to use the app day to day, and how to put it online for free on GitHub Pages.</p>
+<div class="toc"><a href="#quick">1. The daily routine</a><a href="#setup">2. First-time setup</a><a href="#sales">3. Recording sales</a><a href="#reports">4. Reports and analytics</a><a href="#budget">5. Budget, income, expenses, debts, goals</a><a href="#csv">6. Import and export in detail</a><a href="#github">7. Publishing on GitHub</a><a href="#safe">8. Privacy and safety</a><a href="#fix">9. Troubleshooting</a><a href="#shared">10. Shared mode: you and a teammate</a></div>
+
+<h2 id="quick">1. The daily routine</h2>
+<div class="note"><b>Two ways to run it.</b> <b>Shared mode</b> (section 10) saves everything to a private Google Sheet, so you and a teammate just sign in and the data is already there. <b>Single-user mode</b> (below) keeps nothing anywhere except the CSV files you save. The app picks the mode from <code>config.js</code>.</div>
+<p>In single-user mode, FINANCE HUB stores <b>nothing</b> on a server or on your computer. Your data exists only in the browser tab while it is open, so a CSV file is how you keep it.</p>
+<div class="steps"><div class="st"><b class="n">1</b><br><b>Import</b><br>Open the site and click <b>Import CSV</b>. Choose yesterday’s file. Pick <b>Merge</b>.</div><div class="st"><b class="n">2</b><br><b>Work</b><br>Add sales, expenses, income and payments. Everything recalculates instantly.</div><div class="st"><b class="n">3</b><br><b>Export</b><br>Before you leave, click <b>Export all (CSV)</b>. Keep the file somewhere safe.</div></div>
+<div class="mock"><span class="mb">Import CSV</span><span class="mb">Export all (CSV)</span><span class="mp">Unexported changes: export before leaving</span><span style="color:var(--mu)">← the bar at the top of the app</span></div>
+<p>The yellow badge tells you whether you have work that is not yet in a file. The browser also warns you if you try to close the tab with unexported changes. A <b>refresh</b> keeps your data; <b>closing the tab</b> clears it.</p>
+
+<h2 id="setup">2. First-time setup (Settings)</h2>
+<p>The app starts completely empty. Nothing is pre-filled, so add your own lists first under <b>Settings</b>. The dropdowns everywhere else are built from them.</p>
+<table><tr><th>List</th><th>What to add</th></tr>
+<tr><td>Team &amp; assignees</td><td>Yourself first, then anyone who makes sales. Optional role and a monthly sales target.</td></tr>
+<tr><td>Sales platforms</td><td>Where sales come from (for example Telegram or Facebook).</td></tr>
+<tr><td>Sales transaction categories</td><td>Your own types, such as subscriptions, tips or referrals.</td></tr>
+<tr><td>Payment methods</td><td>How people pay you or how you pay.</td></tr>
+<tr><td>Verification statuses</td><td>For example Confirmed, Verifying, Duplicate, Not Found. <b>Tick “Counts as confirmed revenue” on the ones that are real money.</b> Until one is ticked, all sales show as unverified.</td></tr>
+<tr><td>Expense, income, debt types, recurrence</td><td>Categories for budgeting. For recurrence, enter how many months and/or days it repeats (Monthly = 1 month, Weekly = 7 days).</td></tr></table>
+<p>You can edit or <b>deactivate</b> any option later. Old records keep working because they point to the option’s ID, not its name. Customers have their own page in the sidebar, or you can type a new name directly in the sales form.</p>
+
+<h2 id="sales">3. Recording sales</h2>
+<p>Open <b>Sales Tracker</b> and click <b>+ Add sale</b>. Fields: date, <b>Sales from</b> (the team member), <b>Sender</b> (the customer), transaction ID, amount, platform, transaction type, payment method, confirmation status and notes.</p>
+<ul><li><b>Verified vs unverified:</b> only sales whose status is marked “counts as confirmed” are confirmed revenue. Everything else is shown as unverified.</li><li><b>Duplicates:</b> if you reuse a transaction ID the app asks before saving, and the table shows a “Check duplicate” tag. You decide whether it is a real duplicate.</li><li><b>Search</b> the table, and use the <b>From / To</b> dates at the top to filter every page.</li><li><b>Delete</b> hides a record from totals but keeps it in your export, so deletions carry over when you import on another day.</li></ul>
+
+<h2 id="reports">4. Reports and analytics</h2>
+<ul><li><b>Overview:</b> totals, circular progress, donut, line and bar charts. Click a donut segment to see the records behind it.</li><li><b>Sales Analytics:</b> employee ranking, contribution, platform trends and target achievement.</li><li><b>Reports:</b> choose <b>Monthly</b> or <b>Weekly</b> and a period. You get totals by employee, platform and type, top performers, confirmed vs unverified, and growth against the previous period. Use <b>Export CSV</b> or <b>Print</b> on it.</li></ul>
+
+<h2 id="budget">5. Budget, income, expenses, debts and goals</h2>
+<ul><li><b>Budget Manager:</b> pick a month, add a budget per category. You see planned, actual, remaining, percent used, last month, and a forecast (a projection, not a result). Warning levels are set in Settings (default 75% and 90%).</li><li><b>Expenses and Income:</b> add records; totals feed the overview and budgets.</li><li><b>Recurring Payments:</b> set the next due date and recurrence. <b>Mark paid</b> records one expense and moves the due date forward. It never creates duplicates by itself.</li><li><b>Debts:</b> enter the balance, interest rate and minimum payment. <b>Record payment</b> splits interest from principal and updates the estimated payoff.</li><li><b>Savings Goals:</b> set a target and use <b>Add</b> for contributions.</li></ul>
+
+<h2 id="csv">6. Import and export in detail</h2>
+<h3>Export</h3>
+<ul><li><b>Export all (CSV)</b> creates one dated file, like <code>finance-hub-2026-11-10.csv</code>, with everything: records, team, customers, categories and settings. This is your backup.</li><li><b>Export selected date range</b> (Settings) exports only the sales, expenses, income and debt payments inside the From/To dates, plus all lists and other records. Handy for small daily files.</li><li>The <b>Export CSV</b> button on each page makes a simple, Excel-friendly file of just that table.</li></ul>
+<h3>Import</h3>
+<ul><li><b>Merge</b> (recommended) adds new records and updates ones where the file has a newer edit. Records already up to date are left alone, so importing the same file twice is safe.</li><li><b>Replace everything</b> wipes the tab first. Use it for a clean start from one file.</li><li>A preview shows how many records are new or updated before anything changes.</li></ul>
+<div class="note"><b>Tips.</b> Don’t rename the first two columns (<code>table</code>, <code>id</code>) or edit IDs. You can open the file in Excel to look, but save it as <b>CSV UTF-8 (comma delimited)</b> if you edit it. Always keep the latest file; older ones can be kept as history.</div>
+
+<h2 id="github">7. Publishing on GitHub Pages (free)</h2>
+<p>You upload <code>index.html</code> (the app), <code>manual.html</code> (this page) and <code>config.js</code> (empty unless you use shared mode). The charts load from a public library, so visitors need an internet connection.</p>
+<div class="steps"><div class="st"><b class="n">1</b><br><b>Account</b><br>Sign in at <code>github.com</code> (create a free account if needed).</div><div class="st"><b class="n">2</b><br><b>New repository</b><br>Click <b>+ → New repository</b>. Name it <code>finance-hub</code>, set it to <b>Public</b>, and create it.</div><div class="st"><b class="n">3</b><br><b>Upload</b><br>Click <b>Add file → Upload files</b>, drop <code>index.html</code>, <code>manual.html</code>, <code>config.js</code> and <code>README.md</code>, then <b>Commit changes</b>.</div><div class="st"><b class="n">4</b><br><b>Turn on Pages</b><br><b>Settings → Pages</b>. Under “Build and deployment” choose <b>Deploy from a branch</b>, branch <b>main</b>, folder <b>/ (root)</b>, then <b>Save</b>.</div><div class="st"><b class="n">5</b><br><b>Open it</b><br>After a minute or two your site is at <code>https://YOUR-USERNAME.github.io/finance-hub/</code>. The link appears at the top of the Pages screen.</div></div>
+<p><b>Updating later:</b> open the file in the repo, use the pencil (edit) or <b>Add file → Upload files</b> to replace it, and commit. The site refreshes by itself in a minute.</p>
+<p><b>Bookmark it.</b> The first load of the day: open the bookmark, import your CSV, and go.</p>
+
+<h2 id="safe">8. Privacy and safety</h2>
+<ul><li>The repository is public, but <b>your numbers never go into it</b>. They stay in your own browser tab and in the CSV files you save yourself.</li><li><span style="color:var(--er)"><b>Never upload a real export CSV to GitHub.</b></span> Keep CSVs in your own storage (a folder, cloud drive or USB stick).</li><li>On a shared computer, export, then close the tab. Closing the tab clears everything.</li><li>Do not enter passwords or login codes into the app. It has no need for them.</li><li>Back up regularly: files can be lost. A second copy in another place is wise.</li></ul>
+
+<h2 id="fix">9. Troubleshooting</h2>
+<table><tr><th>Problem</th><th>What to do</th></tr>
+<tr><td>Charts are empty or missing</td><td>You may be offline (the chart library loads from the internet) or have no records in the selected dates. Click <b>Clear dates</b>.</td></tr>
+<tr><td>Everything shows as unverified</td><td>In Settings → Verification statuses, tick “Counts as confirmed revenue” on the right statuses.</td></tr>
+<tr><td>“Not a FINANCE HUB export”</td><td>Only files made by <b>Export all (CSV)</b> can be imported. Don’t import the per-page CSVs.</td></tr>
+<tr><td>Names show blank after import</td><td>Import the full export; the team, customers and category lists are inside it.</td></tr>
+<tr><td>I closed the tab by mistake</td><td>Data not exported is gone. Import your latest CSV. Export more often.</td></tr>
+<tr><td>Download didn’t start</td><td>Allow downloads for the site in your browser, then try again.</td></tr>
+<tr><td>My site shows a 404</td><td>Check that the file is named exactly <code>index.html</code> and that Pages is set to branch <b>main</b>, folder <b>/ (root)</b>. Wait two minutes.</td></tr></table>
+<h2 id="shared">10. Shared mode: you and a teammate</h2>
+<p>With shared mode on, nobody imports CSVs. Everyone signs in with Google and the same data appears for both of you.</p>
+<div class="steps"><div class="st"><b class="n">1</b><br><b>Open the site</b><br>Click <b>Sign in with Google</b> (top bar). Pick your Google account.</div><div class="st"><b class="n">2</b><br><b>Data loads</b><br>The badge shows <b>Syncing…</b> then <b>Synced</b>. Everything is there.</div><div class="st"><b class="n">3</b><br><b>Work</b><br>Add and edit as usual. Changes save in a few seconds and your teammate’s changes appear within about 30 seconds.</div></div>
+<ul><li><b>Only listed accounts get in.</b> Anyone else who signs in is refused and sees no data.</li><li><b>Sessions last about an hour.</b> If the badge asks you to sign in again, click the button. Nothing you typed is lost.</li><li><b>Same record, two people.</b> Nothing is overwritten. The second person is asked in <b>Settings → Shared data</b> to choose <b>Keep mine</b> or <b>Use the other version</b>.</li><li><b>Deleting</b> hides a record from totals for everyone but keeps it in the Sheet and in exports.</li><li><b>CSV still works</b> as an extra backup, and importing a CSV merges into the shared data. “Replace everything” is turned off in shared mode to protect the shared data.</li><li><b>Backups:</b> Settings → <b>Back up the Sheet</b> creates a dated copy in the owner’s Google Drive.</li></ul>
+<div class="note">The one-time setup (Google sign-in, the Sheet and the connection) is described in <code>SYNC-SETUP.md</code>. It takes about 20 minutes and is done by the owner only.</div>
+</div></body></html>
